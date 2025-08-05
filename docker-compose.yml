@@ -1,0 +1,150 @@
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - app-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./catalog/storage:/var/www/catalog/storage
+      - ./order/storage:/var/www/order/storage
+      - ./notification/storage:/var/www/notification/storage
+    depends_on:
+      - catalog
+      - order
+      - notification
+      - client
+    networks:
+      - app-network
+
+  catalog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    container_name: catalog
+    volumes:
+      - ./catalog:/var/www/html
+      - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+      - ./docker/supervisor/catalog.conf:/etc/supervisor/conf.d/catalog.conf
+    command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
+    depends_on:
+      - redis
+      - rabbitmq
+      - postgres
+    networks:
+      - app-network
+
+  order:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    container_name: order
+    volumes:
+      - ./order:/var/www/html
+      - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+      - ./docker/supervisor/order.conf:/etc/supervisor/conf.d/order.conf
+    command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
+    depends_on:
+      - redis
+      - rabbitmq
+      - postgres
+    networks:
+      - app-network
+
+  notification:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${UID:-1000}
+        GROUP_ID: ${GID:-1000}
+    container_name: notification
+    volumes:
+      - ./notification:/var/www/html
+      - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
+      - ./docker/supervisor/notification.conf:/etc/supervisor/conf.d/notification.conf
+    command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
+    depends_on:
+      - redis
+      - rabbitmq
+      - postgres
+    networks:
+      - app-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: client
+    ports:
+      - "3000:3000"
+      - "24678:24678"
+    volumes:
+      - ./client:/app
+      - node_modules:/app/node_modules
+    command: npm run dev
+    depends_on:
+      - catalog
+      - order
+      - notification
+    networks:
+      - app-network
+
+volumes:
+  rabbitmq_data:
+  redis_data:
+  node_modules:
+
+networks:
+  app-network:
+    driver: bridge

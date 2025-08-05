@@ -1,0 +1,394 @@
+2025-08-02 16:36:56,953 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 16:36:56,953 INFO Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2025-08-02 16:36:56,953 INFO Set uid to user 0 succeeded
+2025-08-02 16:36:56,959 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:36:56,960 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:36:56,961 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 16:36:56,961 INFO supervisord started with pid 1
+2025-08-02 16:36:57,974 INFO spawnerr: can't find command 'php'
+2025-08-02 16:36:57,974 INFO spawnerr: can't find command 'php'
+2025-08-02 16:36:58,976 INFO spawnerr: can't find command 'php'
+2025-08-02 16:36:58,978 INFO spawnerr: can't find command 'php'
+2025-08-02 16:37:00,984 INFO spawnerr: can't find command 'php'
+2025-08-02 16:37:00,984 INFO spawnerr: can't find command 'php'
+2025-08-02 16:37:04,002 INFO spawnerr: can't find command 'php'
+2025-08-02 16:37:04,003 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-02 16:37:04,003 INFO spawnerr: can't find command 'php'
+2025-08-02 16:37:04,003 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-02 16:43:35,258 WARN received SIGTERM indicating exit request
+2025-08-02 16:43:36,864 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 16:43:36,864 INFO Set uid to user 0 succeeded
+2025-08-02 16:43:36,870 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:43:36,871 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:43:36,871 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 16:43:36,872 INFO supervisord started with pid 1
+2025-08-02 16:43:37,932 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 16:43:37,935 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 16:43:38,593 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:43:38,593 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:43:39,631 INFO spawned: 'product-created-consumer_00' with pid 13
+2025-08-02 16:43:39,634 INFO spawned: 'product-created-consumer_01' with pid 14
+2025-08-02 16:43:39,878 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:43:39,881 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:43:41,946 INFO spawned: 'product-created-consumer_00' with pid 19
+2025-08-02 16:43:41,950 INFO spawned: 'product-created-consumer_01' with pid 20
+2025-08-02 16:43:42,208 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:43:42,209 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:43:45,246 INFO spawned: 'product-created-consumer_00' with pid 25
+2025-08-02 16:43:45,249 INFO spawned: 'product-created-consumer_01' with pid 26
+2025-08-02 16:43:45,522 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:43:45,523 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-02 16:43:45,532 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:43:46,557 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-02 16:58:34,344 WARN received SIGTERM indicating exit request
+2025-08-02 16:58:35,396 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 16:58:35,396 INFO Set uid to user 0 succeeded
+2025-08-02 16:58:35,411 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:58:35,412 INFO RPC interface 'supervisor' initialized
+2025-08-02 16:58:35,412 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 16:58:35,413 INFO supervisord started with pid 1
+2025-08-02 16:58:35,596 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 16:58:35,599 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 16:58:34,484 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:58:34,485 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:58:35,554 INFO spawned: 'product-created-consumer_00' with pid 13
+2025-08-02 16:58:35,558 INFO spawned: 'product-created-consumer_01' with pid 14
+2025-08-02 16:58:35,844 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:58:35,851 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:58:37,920 INFO spawned: 'product-created-consumer_00' with pid 19
+2025-08-02 16:58:37,923 INFO spawned: 'product-created-consumer_01' with pid 20
+2025-08-02 16:58:38,189 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:58:38,189 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:58:41,290 INFO spawned: 'product-created-consumer_00' with pid 25
+2025-08-02 16:58:41,293 INFO spawned: 'product-created-consumer_01' with pid 26
+2025-08-02 16:58:41,543 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 16:58:41,543 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 16:58:41,544 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-02 16:58:41,544 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-02 17:02:54,340 WARN received SIGTERM indicating exit request
+2025-08-02 17:02:55,404 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:02:55,404 INFO Set uid to user 0 succeeded
+2025-08-02 17:02:55,416 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:02:55,417 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:02:55,417 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:02:55,417 INFO supervisord started with pid 1
+2025-08-02 17:02:56,429 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:02:56,434 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 17:02:57,175 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:02:57,176 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:02:58,196 INFO spawned: 'product-created-consumer_00' with pid 13
+2025-08-02 17:02:58,199 INFO spawned: 'product-created-consumer_01' with pid 14
+2025-08-02 17:02:58,440 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:02:58,442 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:03:00,458 INFO spawned: 'product-created-consumer_00' with pid 19
+2025-08-02 17:03:00,463 INFO spawned: 'product-created-consumer_01' with pid 20
+2025-08-02 17:03:00,732 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:03:00,735 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:03:03,744 INFO spawned: 'product-created-consumer_00' with pid 31
+2025-08-02 17:03:03,747 INFO spawned: 'product-created-consumer_01' with pid 32
+2025-08-02 17:03:04,026 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:03:04,030 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-02 17:03:04,030 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:03:05,038 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-02 17:05:16,085 WARN received SIGTERM indicating exit request
+2025-08-02 17:05:21,342 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:05:21,343 INFO Set uid to user 0 succeeded
+2025-08-02 17:05:21,356 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:05:21,358 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:05:21,358 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:05:21,359 INFO supervisord started with pid 1
+2025-08-02 17:05:22,363 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:05:22,368 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 17:05:24,028 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:05:24,028 INFO success: product-created-consumer_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:05:51,993 WARN received SIGTERM indicating exit request
+2025-08-02 17:05:51,994 INFO waiting for product-created-consumer_00, product-created-consumer_01 to die
+2025-08-02 17:05:51,998 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-02 17:05:51,999 WARN stopped: product-created-consumer_01 (terminated by SIGTERM)
+2025-08-02 17:06:01,176 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:06:01,176 INFO Set uid to user 0 succeeded
+2025-08-02 17:06:01,188 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:06:01,189 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:06:01,189 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:06:01,189 INFO supervisord started with pid 1
+2025-08-02 17:06:02,197 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:06:02,209 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 17:06:03,890 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:06:03,891 INFO success: product-created-consumer_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:07:41,053 WARN received SIGTERM indicating exit request
+2025-08-02 17:07:41,054 INFO waiting for product-created-consumer_00, product-created-consumer_01 to die
+2025-08-02 17:07:41,059 WARN stopped: product-created-consumer_01 (terminated by SIGTERM)
+2025-08-02 17:07:41,060 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-02 17:07:42,065 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:07:42,065 INFO Set uid to user 0 succeeded
+2025-08-02 17:07:42,076 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:07:42,076 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:07:42,076 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:07:42,077 INFO supervisord started with pid 1
+2025-08-02 17:07:40,442 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:07:40,445 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 17:07:42,029 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:07:42,030 INFO success: product-created-consumer_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:09:37,325 WARN received SIGTERM indicating exit request
+2025-08-02 17:09:37,328 INFO waiting for product-created-consumer_00, product-created-consumer_01 to die
+2025-08-02 17:09:37,334 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-02 17:09:37,334 WARN stopped: product-created-consumer_01 (terminated by SIGTERM)
+2025-08-02 17:09:39,282 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:09:39,282 INFO Set uid to user 0 succeeded
+2025-08-02 17:09:39,289 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:09:39,290 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:09:39,290 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:09:39,291 INFO supervisord started with pid 1
+2025-08-02 17:09:40,298 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:09:41,673 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:10:11,599 WARN received SIGTERM indicating exit request
+2025-08-02 17:10:11,599 INFO waiting for product-created-consumer_00 to die
+2025-08-02 17:10:11,605 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-02 17:10:12,394 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:10:12,394 INFO Set uid to user 0 succeeded
+2025-08-02 17:10:12,399 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:10:12,400 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:10:12,400 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:10:12,400 INFO supervisord started with pid 1
+2025-08-02 17:10:13,417 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-02 17:10:13,420 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-02 17:10:13,423 INFO spawned: 'product-created-consumer_02' with pid 9
+2025-08-02 17:10:13,427 INFO spawned: 'product-created-consumer_03' with pid 10
+2025-08-02 17:10:14,648 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:10:14,649 INFO success: product-created-consumer_01 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:10:14,649 INFO success: product-created-consumer_02 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:10:14,649 INFO success: product-created-consumer_03 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-02 17:22:06,233 WARN received SIGTERM indicating exit request
+2025-08-02 17:22:06,239 INFO waiting for product-created-consumer_00, product-created-consumer_01, product-created-consumer_02, product-created-consumer_03 to die
+2025-08-02 17:22:06,259 WARN stopped: product-created-consumer_01 (terminated by SIGTERM)
+2025-08-02 17:22:06,260 WARN stopped: product-created-consumer_02 (terminated by SIGTERM)
+2025-08-02 17:22:06,261 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-02 17:22:06,261 WARN stopped: product-created-consumer_03 (terminated by SIGTERM)
+2025-08-02 17:57:18,568 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-02 17:57:18,568 INFO Set uid to user 0 succeeded
+2025-08-02 17:57:18,584 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:57:18,586 INFO RPC interface 'supervisor' initialized
+2025-08-02 17:57:18,586 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-02 17:57:18,586 INFO supervisord started with pid 1
+2025-08-02 17:57:19,590 INFO spawned: 'product-created-consumer_00' with pid 6
+2025-08-02 17:57:19,595 INFO spawned: 'product-created-consumer_01' with pid 7
+2025-08-02 17:57:19,600 INFO spawned: 'product-created-consumer_02' with pid 8
+2025-08-02 17:57:19,604 INFO spawned: 'product-created-consumer_03' with pid 9
+2025-08-02 17:57:20,500 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-02 17:57:20,502 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:57:20,502 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-02 17:57:20,506 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:57:21,510 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-02 17:57:21,515 INFO spawned: 'product-created-consumer_01' with pid 19
+2025-08-02 17:57:21,520 INFO spawned: 'product-created-consumer_02' with pid 20
+2025-08-02 17:57:21,525 INFO spawned: 'product-created-consumer_03' with pid 21
+2025-08-02 17:57:21,958 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:57:21,963 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:57:21,967 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-02 17:57:22,066 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-02 17:57:24,071 INFO spawned: 'product-created-consumer_00' with pid 30
+2025-08-02 17:57:24,075 INFO spawned: 'product-created-consumer_01' with pid 31
+2025-08-02 17:57:24,080 INFO spawned: 'product-created-consumer_02' with pid 32
+2025-08-02 17:57:24,086 INFO spawned: 'product-created-consumer_03' with pid 33
+2025-08-02 17:57:24,509 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-02 17:57:24,514 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:57:24,518 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-02 17:57:24,526 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:57:27,533 INFO spawned: 'product-created-consumer_00' with pid 42
+2025-08-02 17:57:27,537 INFO spawned: 'product-created-consumer_01' with pid 43
+2025-08-02 17:57:27,541 INFO spawned: 'product-created-consumer_02' with pid 44
+2025-08-02 17:57:27,545 INFO spawned: 'product-created-consumer_03' with pid 45
+2025-08-02 17:57:27,969 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-02 17:57:27,971 INFO gave up: product-created-consumer_02 entered FATAL state, too many start retries too quickly
+2025-08-02 17:57:27,971 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-02 17:57:27,971 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-02 17:57:27,971 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-02 17:57:27,994 INFO gave up: product-created-consumer_03 entered FATAL state, too many start retries too quickly
+2025-08-02 17:57:28,006 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-02 17:57:29,008 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-03 14:25:49,449 WARN received SIGTERM indicating exit request
+2025-08-03 14:25:51,566 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:25:51,567 INFO Set uid to user 0 succeeded
+2025-08-03 14:25:51,582 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:25:51,583 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:25:51,583 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:25:51,584 INFO supervisord started with pid 1
+2025-08-03 14:25:52,592 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:25:52,605 INFO spawned: 'product-created-consumer_01' with pid 8
+2025-08-03 14:25:52,621 INFO spawned: 'product-created-consumer_02' with pid 9
+2025-08-03 14:25:52,633 INFO spawned: 'product-created-consumer_03' with pid 10
+2025-08-03 14:25:53,343 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:25:53,343 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-03 14:25:53,343 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-03 14:25:53,343 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-03 14:25:54,349 INFO spawned: 'product-created-consumer_00' with pid 19
+2025-08-03 14:25:54,352 INFO spawned: 'product-created-consumer_01' with pid 20
+2025-08-03 14:25:54,356 INFO spawned: 'product-created-consumer_02' with pid 21
+2025-08-03 14:25:54,360 INFO spawned: 'product-created-consumer_03' with pid 22
+2025-08-03 14:25:54,946 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-03 14:25:54,947 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:25:54,952 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-03 14:25:54,956 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-03 14:25:56,961 INFO spawned: 'product-created-consumer_00' with pid 31
+2025-08-03 14:25:56,965 INFO spawned: 'product-created-consumer_01' with pid 32
+2025-08-03 14:25:56,967 INFO spawned: 'product-created-consumer_02' with pid 33
+2025-08-03 14:25:56,971 INFO spawned: 'product-created-consumer_03' with pid 34
+2025-08-03 14:25:57,324 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:25:57,324 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-03 14:25:57,331 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-03 14:25:57,356 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-03 14:26:00,364 INFO spawned: 'product-created-consumer_00' with pid 43
+2025-08-03 14:26:00,368 INFO spawned: 'product-created-consumer_01' with pid 44
+2025-08-03 14:26:00,371 INFO spawned: 'product-created-consumer_02' with pid 45
+2025-08-03 14:26:00,376 INFO spawned: 'product-created-consumer_03' with pid 46
+2025-08-03 14:26:00,731 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:26:00,733 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 14:26:00,742 WARN exited: product-created-consumer_02 (exit status 1; not expected)
+2025-08-03 14:26:00,748 INFO gave up: product-created-consumer_02 entered FATAL state, too many start retries too quickly
+2025-08-03 14:26:00,748 WARN exited: product-created-consumer_01 (exit status 1; not expected)
+2025-08-03 14:26:00,749 INFO gave up: product-created-consumer_01 entered FATAL state, too many start retries too quickly
+2025-08-03 14:26:00,759 WARN exited: product-created-consumer_03 (exit status 1; not expected)
+2025-08-03 14:26:01,760 INFO gave up: product-created-consumer_03 entered FATAL state, too many start retries too quickly
+2025-08-03 14:31:47,593 WARN received SIGTERM indicating exit request
+2025-08-03 14:31:48,394 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:31:48,394 INFO Set uid to user 0 succeeded
+2025-08-03 14:31:48,400 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:31:48,400 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:31:48,401 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:31:48,401 INFO supervisord started with pid 1
+2025-08-03 14:31:49,418 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:31:49,425 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 14:31:49,673 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:31:50,714 INFO spawned: 'product-created-consumer_00' with pid 15
+2025-08-03 14:31:50,716 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 14:31:50,978 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:31:52,988 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-03 14:31:53,234 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:31:56,248 INFO spawned: 'product-created-consumer_00' with pid 21
+2025-08-03 14:31:56,490 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:31:57,512 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 14:33:23,172 WARN received SIGTERM indicating exit request
+2025-08-03 14:33:23,173 INFO waiting for reverb-worker_00 to die
+2025-08-03 14:33:23,187 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 14:33:23,988 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:33:23,988 INFO Set uid to user 0 succeeded
+2025-08-03 14:33:23,994 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:33:23,994 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:33:23,995 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:33:23,995 INFO supervisord started with pid 1
+2025-08-03 14:33:24,999 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:33:25,002 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 14:33:25,304 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:33:26,310 INFO spawned: 'product-created-consumer_00' with pid 15
+2025-08-03 14:33:26,311 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 14:33:26,582 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:33:28,593 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-03 14:33:28,863 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:33:31,877 INFO spawned: 'product-created-consumer_00' with pid 21
+2025-08-03 14:33:32,135 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:33:33,140 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 14:35:50,730 WARN received SIGTERM indicating exit request
+2025-08-03 14:35:50,730 INFO waiting for reverb-worker_00 to die
+2025-08-03 14:35:50,742 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 14:35:51,581 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:35:51,581 INFO Set uid to user 0 succeeded
+2025-08-03 14:35:51,587 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:35:51,588 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:35:51,588 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:35:51,588 INFO supervisord started with pid 1
+2025-08-03 14:35:52,604 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:35:52,608 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 14:35:52,867 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:35:53,871 INFO spawned: 'product-created-consumer_00' with pid 15
+2025-08-03 14:35:53,872 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 14:35:54,131 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:35:56,157 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-03 14:35:56,412 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:35:59,438 INFO spawned: 'product-created-consumer_00' with pid 21
+2025-08-03 14:35:59,700 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:36:00,715 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 14:36:45,979 WARN received SIGTERM indicating exit request
+2025-08-03 14:36:45,980 INFO waiting for reverb-worker_00 to die
+2025-08-03 14:36:45,991 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 14:36:46,794 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:36:46,794 INFO Set uid to user 0 succeeded
+2025-08-03 14:36:46,800 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:36:46,801 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:36:46,801 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:36:46,801 INFO supervisord started with pid 1
+2025-08-03 14:36:47,833 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:36:47,836 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 14:36:48,128 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:36:49,159 INFO spawned: 'product-created-consumer_00' with pid 15
+2025-08-03 14:36:49,159 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 14:36:49,420 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:36:51,426 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-03 14:36:51,687 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:36:54,697 INFO spawned: 'product-created-consumer_00' with pid 21
+2025-08-03 14:36:54,951 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 14:36:55,954 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 14:40:34,199 WARN received SIGTERM indicating exit request
+2025-08-03 14:40:34,200 INFO waiting for reverb-worker_00 to die
+2025-08-03 14:40:34,221 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 14:40:35,057 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 14:40:35,057 INFO Set uid to user 0 succeeded
+2025-08-03 14:40:35,063 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:40:35,064 INFO RPC interface 'supervisor' initialized
+2025-08-03 14:40:35,065 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 14:40:35,065 INFO supervisord started with pid 1
+2025-08-03 14:40:36,070 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 14:40:36,073 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 14:40:37,344 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 14:40:37,344 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 16:24:38,219 WARN received SIGTERM indicating exit request
+2025-08-03 16:24:38,227 INFO waiting for product-created-consumer_00, reverb-worker_00 to die
+2025-08-03 16:24:38,237 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-03 16:24:38,339 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 16:28:53,892 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 16:28:53,892 INFO Set uid to user 0 succeeded
+2025-08-03 16:28:53,904 INFO RPC interface 'supervisor' initialized
+2025-08-03 16:28:53,907 INFO RPC interface 'supervisor' initialized
+2025-08-03 16:28:53,907 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 16:28:53,907 INFO supervisord started with pid 1
+2025-08-03 16:28:54,912 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 16:28:54,919 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 16:28:55,729 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 16:28:56,735 INFO spawned: 'product-created-consumer_00' with pid 15
+2025-08-03 16:28:56,743 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 16:28:57,229 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 16:28:59,234 INFO spawned: 'product-created-consumer_00' with pid 18
+2025-08-03 16:28:59,820 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 16:29:02,827 INFO spawned: 'product-created-consumer_00' with pid 21
+2025-08-03 16:29:03,380 WARN exited: product-created-consumer_00 (exit status 1; not expected)
+2025-08-03 16:29:04,381 INFO gave up: product-created-consumer_00 entered FATAL state, too many start retries too quickly
+2025-08-03 17:00:00,491 WARN received SIGTERM indicating exit request
+2025-08-03 17:00:00,492 INFO waiting for reverb-worker_00 to die
+2025-08-03 17:00:00,520 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 17:59:46,412 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 17:59:46,413 INFO Set uid to user 0 succeeded
+2025-08-03 17:59:46,428 INFO RPC interface 'supervisor' initialized
+2025-08-03 17:59:46,430 INFO RPC interface 'supervisor' initialized
+2025-08-03 17:59:46,430 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 17:59:46,431 INFO supervisord started with pid 1
+2025-08-03 17:59:47,437 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 17:59:47,441 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 17:59:49,254 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 17:59:49,254 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 18:25:18,619 WARN received SIGTERM indicating exit request
+2025-08-03 18:25:18,620 INFO waiting for product-created-consumer_00, reverb-worker_00 to die
+2025-08-03 18:25:18,625 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-03 18:25:18,645 INFO stopped: reverb-worker_00 (exit status 0)
+2025-08-03 18:25:19,451 INFO Included extra file "/etc/supervisor/conf.d/laravel-workers.conf" during parsing
+2025-08-03 18:25:19,451 INFO Set uid to user 0 succeeded
+2025-08-03 18:25:19,459 INFO RPC interface 'supervisor' initialized
+2025-08-03 18:25:19,459 INFO RPC interface 'supervisor' initialized
+2025-08-03 18:25:19,459 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2025-08-03 18:25:19,460 INFO supervisord started with pid 1
+2025-08-03 18:25:20,465 INFO spawned: 'product-created-consumer_00' with pid 7
+2025-08-03 18:25:20,470 INFO spawned: 'reverb-worker_00' with pid 8
+2025-08-03 18:25:21,931 INFO success: product-created-consumer_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 18:25:21,931 INFO success: reverb-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-08-03 18:41:19,234 WARN received SIGTERM indicating exit request
+2025-08-03 18:41:19,235 INFO waiting for product-created-consumer_00, reverb-worker_00 to die
+2025-08-03 18:41:19,241 WARN stopped: product-created-consumer_00 (terminated by SIGTERM)
+2025-08-03 18:41:19,250 INFO stopped: reverb-worker_00 (exit status 0)
