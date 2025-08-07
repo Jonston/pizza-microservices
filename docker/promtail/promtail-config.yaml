@@ -1,0 +1,52 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: catalog
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: catalog
+          __path__: /var/log/catalog/**/*.log
+
+  - job_name: order
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: order
+          __path__: /var/log/order/**/*.log
+
+  - job_name: order-amqp
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: order-amqp
+          service: order
+          __path__: /var/log/order/storage/logs/amqp*.log
+
+  - job_name: notification
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: notification
+          __path__: /var/log/notification/**/*.log
+
+
+  - job_name: supervisor
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: supervisor
+          __path__: /var/log/supervisor/*.log

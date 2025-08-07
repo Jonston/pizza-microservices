@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bceea366e9d6f74d37578aecdf1c595",
+    "content-hash": "8d4b5c0323b7a6a9f89178fe10dc15d9",
     "packages": [
         {
             "name": "brick/math",
@@ -65,78 +65,6 @@
                 }
             ],
             "time": "2025-03-29T13:50:30+00:00"
-        },
-        {
-            "name": "bschmitt/laravel-amqp",
-            "version": "2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bschmitt/laravel-amqp.git",
-                "reference": "4385439d865bbf7c5b3b953d1926488deb044f65"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bschmitt/laravel-amqp/zipball/4385439d865bbf7c5b3b953d1926488deb044f65",
-                "reference": "4385439d865bbf7c5b3b953d1926488deb044f65",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": ">=6.20.0",
-                "php": "^7.3|^8.0",
-                "php-amqplib/php-amqplib": "^3.0"
-            },
-            "require-dev": {
-                "illuminate/config": ">=5.5",
-                "mockery/mockery": "^1.2",
-                "phpoption/phpoption": "1.7.x-dev",
-                "phpunit/phpunit": ">=6.0",
-                "squizlabs/php_codesniffer": "^3.0@dev",
-                "vlucas/phpdotenv": "^5.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "Amqp": "Bschmitt\\Amqp\\Facades\\Amqp"
-                    },
-                    "providers": [
-                        "Bschmitt\\Amqp\\AmqpServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bschmitt\\Amqp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Björn Schmitt",
-                    "email": "code@bjoern.io"
-                }
-            ],
-            "description": "AMQP wrapper for Laravel and Lumen to publish and consume messages",
-            "keywords": [
-                "AMQP",
-                "Björn Schmitt",
-                "bschmitt",
-                "laravel",
-                "laravel5",
-                "lumen",
-                "message queue",
-                "package",
-                "queue",
-                "rabbitmq"
-            ],
-            "support": {
-                "issues": "https://github.com/bschmitt/laravel-amqp/issues",
-                "source": "https://github.com/bschmitt/laravel-amqp"
-            },
-            "time": "2023-02-18T20:19:40+00:00"
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -1125,6 +1053,63 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "jonston/amqp-laravel",
+            "version": "v0.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jonston/amqp-laravel.git",
+                "reference": "54da76cd7d6fef9d0be293ee1193884ba2a1e7aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jonston/amqp-laravel/zipball/54da76cd7d6fef9d0be293ee1193884ba2a1e7aa",
+                "reference": "54da76cd7d6fef9d0be293ee1193884ba2a1e7aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "php-amqplib/php-amqplib": "^3.7"
+            },
+            "require-dev": {
+                "laravel/framework": "^9.0|^10.0|^11.0|^12.0",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "commands": [
+                        "Jonston\\AmqpLaravel\\Console\\Commands\\AMQPSetupCommand"
+                    ],
+                    "providers": [
+                        "Jonston\\AmqpLaravel\\AMQPServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jonston\\AmqpLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene",
+                    "email": "jonston85@gmail.com"
+                }
+            ],
+            "description": "Simple wrapper for amqp library to use in Laravel",
+            "support": {
+                "issues": "https://github.com/Jonston/amqp-laravel/issues",
+                "source": "https://github.com/Jonston/amqp-laravel/tree/v0.5.1"
+            },
+            "time": "2025-08-07T11:36:35+00:00"
         },
         {
             "name": "laravel/framework",

@@ -69,10 +69,13 @@ services:
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
     container_name: catalog
+    ports:
+      - "9001:9001"
     volumes:
       - ./catalog:/var/www/html
       - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
       - ./docker/supervisor/catalog.conf:/etc/supervisor/conf.d/catalog.conf
+      - supervisor_logs:/var/log/supervisor
     command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
     depends_on:
       - redis
@@ -89,10 +92,13 @@ services:
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
     container_name: order
+    ports:
+      - "9002:9001"
     volumes:
       - ./order:/var/www/html
       - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
       - ./docker/supervisor/order.conf:/etc/supervisor/conf.d/order.conf
+      - supervisor_logs:/var/log/supervisor
     command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
     depends_on:
       - redis
@@ -109,10 +115,13 @@ services:
         USER_ID: ${UID:-1000}
         GROUP_ID: ${GID:-1000}
     container_name: notification
+    ports:
+      - "9003:9001"
     volumes:
       - ./notification:/var/www/html
       - ./docker/supervisor/supervisord.conf:/etc/supervisor/supervisord.conf
       - ./docker/supervisor/notification.conf:/etc/supervisor/conf.d/notification.conf
+      - supervisor_logs:/var/log/supervisor
     command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
     depends_on:
       - redis
@@ -140,10 +149,54 @@ services:
     networks:
       - app-network
 
+  loki:
+    image: grafana/loki:2.9.4
+    container_name: loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    volumes:
+      - ./docker/loki/local-config.yaml:/etc/loki/local-config.yaml
+      - loki_data:/loki
+    user: "0:0"
+    networks:
+      - app-network
+
+  grafana:
+    image: grafana/grafana:10.2.3
+    container_name: grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+    depends_on:
+      - loki
+    networks:
+      - app-network
+
+  promtail:
+    image: grafana/promtail:2.9.4
+    container_name: promtail
+    volumes:
+      - ./docker/promtail/promtail-config.yaml:/etc/promtail/promtail-config.yaml
+      - ./catalog:/var/log/catalog:ro
+      - ./order:/var/log/order:ro
+      - ./notification:/var/log/notification:ro
+      - supervisor_logs:/var/log/supervisor:ro
+    command: -config.file=/etc/promtail/promtail-config.yaml
+    networks:
+      - app-network
+
 volumes:
   rabbitmq_data:
   redis_data:
   node_modules:
+  grafana_data:
+  loki_data:
+  supervisor_logs:
 
 networks:
   app-network:

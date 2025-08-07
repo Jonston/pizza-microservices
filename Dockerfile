@@ -42,6 +42,9 @@ WORKDIR /var/www/html
 # Изменение прав на директории логов
 RUN chown -R www-data:www-data /var/log/supervisor
 
+# Создание директорий для логов приложения
+RUN mkdir -p /var/log/app && chown -R www-data:www-data /var/log/app
+
 # PHP-FPM слушает на порту 9000
 EXPOSE 9000
 

@@ -3,11 +3,18 @@ namespace App\Services;
 
 use App\Enums\OrderStatusEnum;
 use App\Models\Order;
-use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Support\Facades\DB;
+use Jonston\AmqpLaravel\AMQPService;
 
 class OrderService
 {
+    protected AMQPService $amqpService;
+
+    public function __construct(AMQPService $amqpService)
+    {
+        $this->amqpService = $amqpService;
+    }
+
     public function create(array $data): Order
     {
         return DB::transaction(function () use ($data) {
@@ -25,17 +32,12 @@ class OrderService
                 );
             }
 
-            $data = json_encode([
+            $message = json_encode([
                 'id' => $order->id,
                 'status' => $order->status,
             ]);
 
-            $params = [
-                'exchange' => 'order',
-                'exchange_type' => 'fanout',
-            ];
-
-            Amqp::publish('', $data, $params);
+            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
 
             $order->load('products');
 

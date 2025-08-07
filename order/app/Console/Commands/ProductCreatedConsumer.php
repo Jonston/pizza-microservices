@@ -3,38 +3,35 @@
 namespace App\Console\Commands;
 
 use App\Services\ProductService;
-use Bschmitt\Amqp\Facades\Amqp;
 use Illuminate\Console\Command;
+use Jonston\AmqpLaravel\AMQPService;
 
 class ProductCreatedConsumer extends Command
 {
     protected ProductService $productService;
 
+    protected AMQPService $amqpService;
+
     protected $signature = 'amqp:consume-product-created';
 
     protected $description = 'Consume messages from the product.created queue and process them';
 
-    public function __construct(ProductService $productService)
+    public function __construct(ProductService $productService, AMQPService $amqpService)
     {
         parent::__construct();
 
         $this->productService = $productService;
+
+        $this->amqpService = $amqpService;
     }
 
     public function handle(): void
     {
         $this->info('ProductCreatedConsumer is running...');
 
-        $params = [
-            'routing' => '',
-            'exchange' => 'product_fanout',
-            'exchange_type' => 'fanout',
-            'queue_force_declare' => true,
-            'queue_exclusive' => true,
-            'persistent' => true
-        ];
-
-        Amqp::consume('', fn ($message, $resolver) => $this->processMessage($message, $resolver), $params);
+        $this->amqpService->consume('catalog', function ($message, $resolver) {
+            $this->processMessage($message, $resolver);
+        });
 
         $this->info('ProductCreatedConsumer finished.');
     }

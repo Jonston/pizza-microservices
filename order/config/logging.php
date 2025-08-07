@@ -52,6 +52,14 @@ return [
 
     'channels' => [
 
+        'amqp' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/amqp.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 30),
+            'replace_placeholders' => true,
+        ],
+
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', (string) env('LOG_STACK', 'single')),

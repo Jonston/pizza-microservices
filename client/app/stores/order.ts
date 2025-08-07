@@ -4,15 +4,44 @@ import { OrderStatus } from '~/types/common';
 import type { Order } from '~/types/common';
 export const useOrderStore = defineStore('order', () => {
   const orders = ref<Order[]>([
-    { id: 1, status: OrderStatus.PENDING, items: ['Margherita Pizza'], total: 250 },
-    { id: 2, status: OrderStatus.PROCESSING, items: ['Pepperoni Pizza'], total: 280 },
-    { id: 3, status: OrderStatus.DELIVERING, items: ['Four Cheese Pizza'], total: 300 },
-    { id: 4, status: OrderStatus.COMPLETED, items: ['Margherita Pizza', 'Pepperoni Pizza'], total: 530 },
-    { id: 5, status: OrderStatus.CANCELLED, items: ['Four Cheese Pizza'], total: 300 },
-    { id: 6, status: OrderStatus.FAILED, items: ['Pepperoni Pizza'], total: 280 }
+    {
+      id: 1,
+      status: OrderStatus.PENDING,
+      items: ['Margherita Pizza'],
+      total: 250
+    },
+    {
+      id: 2,
+      status: OrderStatus.PROCESSING,
+      items: ['Pepperoni Pizza'],
+      total: 280
+    },
+    {
+      id: 3,
+      status: OrderStatus.DELIVERING,
+      items: ['Four Cheese Pizza'],
+      total: 300
+    },
+    {
+      id: 4,
+      status: OrderStatus.COMPLETED,
+      items: ['Margherita Pizza', 'Pepperoni Pizza'],
+      total: 530
+    },
+    {
+      id: 5,
+      status: OrderStatus.CANCELLED,
+      items: ['Four Cheese Pizza'],
+      total: 300
+    },
+    {
+      id: 6,
+      status: OrderStatus.FAILED,
+      items: ['Pepperoni Pizza'],
+      total: 280
+    }
   ]);
-  
-  // Getters
+
   const orderCount = computed(() => {
     return orders.value.length;
   });
