@@ -14,23 +14,34 @@ scrape_configs:
       - targets:
           - localhost
         labels:
-          job: catalog
-          __path__: /var/log/catalog/**/*.log
+          job: app
+          service: catalog
+          __path__: /var/log/catalog/storage/logs/laravel.log
+
+  - job_name: amqp_catalog
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: amqp
+          service: catalog
+          __path__: /var/log/catalog/storage/logs/amqp*.log
 
   - job_name: order
     static_configs:
       - targets:
           - localhost
         labels:
-          job: order
-          __path__: /var/log/order/**/*.log
+          job: app
+          service: order
+          __path__: /var/log/order/storage/logs/laravel.log
 
-  - job_name: order-amqp
+  - job_name: amqp_order
     static_configs:
       - targets:
           - localhost
         labels:
-          job: order-amqp
+          job: amqp
           service: order
           __path__: /var/log/order/storage/logs/amqp*.log
 
@@ -39,8 +50,18 @@ scrape_configs:
       - targets:
           - localhost
         labels:
-          job: notification
-          __path__: /var/log/notification/**/*.log
+          job: app
+          service: notification
+          __path__: /var/log/notification/storage/logs/laravel.log
+
+  - job_name: amqp_notification
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: amqp
+          service: notification
+          __path__: /var/log/notification/storage/logs/amqp*.log
 
 
   - job_name: supervisor

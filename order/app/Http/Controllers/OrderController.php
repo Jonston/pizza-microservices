@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Services\OrderService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class OrderController extends Controller
 {
@@ -23,7 +24,7 @@ class OrderController extends Controller
 
         return response()->json([
             'message' => 'Orders retrieved successfully',
-            'orders' => $orders
+            'data' => $orders
         ]);
     }
 

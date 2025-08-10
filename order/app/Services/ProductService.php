@@ -10,5 +10,10 @@ class ProductService
     {
         return Product::create($data);
     }
+
+    public function truncate(): void
+    {
+        Product::truncate();
+    }
 }
 

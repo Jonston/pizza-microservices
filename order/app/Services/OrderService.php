@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Enums\OrderEventEnum;
 use App\Enums\OrderStatusEnum;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
@@ -33,8 +34,11 @@ class OrderService
             }
 
             $message = json_encode([
-                'id' => $order->id,
-                'status' => $order->status,
+                'event' => OrderEventEnum::ORDER_CREATED,
+                'order' => [
+                    'id' => $order->id,
+                    'status' => $order->status,
+                ]
             ]);
 
             $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
@@ -45,72 +49,80 @@ class OrderService
         });
     }
 
-    public function process(string $id): void
+    public function process(string $id): Order
     {
-        DB::transaction(function () use ($id) {
+        return DB::transaction(function () use ($id) {
             sleep(3);
 
+            /* @var Order $order */
             $order = Order::findOrFail($id);
             $order->status = OrderStatusEnum::PROCESSING;
             $order->save();
 
-            $data = json_encode([
-                'id' => $order->id,
-                'status' => $order->status,
+            $message = json_encode([
+                'event' => OrderEventEnum::ORDER_PROCESSED,
+                'order' => [
+                    'id' => $order->id,
+                    'status' => $order->status,
+                ]
             ]);
 
-            $params = [
-                'exchange' => 'order',
-                'exchange_type' => 'fanout',
-            ];
+            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
 
-            Amqp::publish('', $data, $params);
+            $order->load('products');
+
+            return $order;
         });
     }
 
-    public function delivery(string $id): void
+    public function delivery(string $id): Order
     {
-        DB::transaction(function () use ($id) {
+        return DB::transaction(function () use ($id) {
             sleep(3);
 
+            /* @var Order $order */
+            $order = Order::findOrFail($id);
+            $order->status = OrderStatusEnum::COMPLETED;
+            $order->save();
+
+            $message = json_encode([
+                'event' => OrderEventEnum::ORDER_DELIVERED,
+                'order' => [
+                    'id' => $order->id,
+                    'status' => $order->status,
+                ]
+            ]);
+
+            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
+
+            $order->load('products');
+
+            return $order;
+        });
+    }
+
+    public function complete(string $id): Order
+    {
+        return DB::transaction(function () use ($id) {
+
+            /* @var Order $order */
             $order = Order::findOrFail($id);
             $order->status = OrderStatusEnum::COMPLETED;
             $order->save();
 
             $data = json_encode([
-                'id' => $order->id,
-                'status' => $order->status,
+                'event' => OrderEventEnum::ORDER_COMPLETED,
+                'order' => [
+                    'id' => $order->id,
+                    'status' => $order->status,
+                ]
             ]);
 
-            $params = [
-                'exchange' => 'order',
-                'exchange_type' => 'fanout',
-            ];
+            $this->amqpService->publish('orders_fanout', '', $data, 'fanout');
 
-            Amqp::publish('', $data, $params);
-        });
-    }
+            $order->load('products');
 
-    public function complete(string $id): void
-    {
-        DB::transaction(function () use ($id) {
-            sleep(3);
-
-            $order = Order::findOrFail($id);
-            $order->status = OrderStatusEnum::COMPLETED;
-            $order->save();
-
-            $data = json_encode([
-                'id' => $order->id,
-                'status' => $order->status,
-            ]);
-
-            $params = [
-                'exchange' => 'order',
-                'exchange_type' => 'fanout',
-            ];
-
-            Amqp::publish('', $data, $params);
+            return $order;
         });
     }
 }

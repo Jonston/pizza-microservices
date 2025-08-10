@@ -7,7 +7,6 @@
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/catalog" />
             <path value="file://$PROJECT_DIR$/client" />
-            <path value="file://$PROJECT_DIR$/docker" />
             <path value="file://$PROJECT_DIR$/notification" />
             <path value="file://$PROJECT_DIR$/order" />
           </resourceRoots>

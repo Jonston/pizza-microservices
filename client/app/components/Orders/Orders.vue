@@ -3,6 +3,14 @@ import { OrderStatus } from '~/types/common';
 
 const orderStore = useOrderStore();
 
+const fetchOrders = async () => {
+  try {
+    await orderStore.fetchOrders();
+  } catch (error) {
+    console.error('Failed to fetch orders:', error);
+  }
+};
+
 const getStatusColor = (status: OrderStatus) => {
   switch (status) {
     case OrderStatus.PENDING:
@@ -26,6 +34,7 @@ const getStatusColor = (status: OrderStatus) => {
 <template>
   <div class="order-list p-4 bg-white rounded-lg shadow-md">
     <h2 class="text-xl font-semibold mb-4">Your Orders</h2>
+    <UButton @click="fetchOrders">Refresh</UButton>
     <div v-if="orderStore.orders.length > 0">
       <div v-for="order in orderStore.orders" :key="order.id" class="mb-3 p-3 border border-gray-200 rounded">
         <div class="flex justify-between">

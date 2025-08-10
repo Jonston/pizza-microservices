@@ -3,16 +3,15 @@
 namespace App\Services;
 
 use App\Models\Product;
-use Bschmitt\Amqp\Facades\Amqp;
+use Jonston\AmqpLaravel\AMQPService;
 
 class ProductService
 {
-    /**
-     * Создать новый продукт
-     *
-     * @param array $data
-     * @return Product
-     */
+    public function __construct(AMQPService $amqpService)
+    {
+        $this->amqpService = $amqpService;
+    }
+
     public function create(array $data): Product
     {
         $product = Product::create($data);
@@ -24,14 +23,16 @@ class ProductService
             'image' => $product->image,
         ]);
 
-        $params = [
-            'exchange' => 'product_fanout',
-            'exchange_type' => 'fanout',
-        ];
-
-        Amqp::publish('', $data, $params);
+        $this->amqpService->publish('catalog_exchange', 'products.created', $data);
 
         return $product;
+    }
+
+    public function truncate(): void
+    {
+        Product::truncate();
+
+        $this->amqpService->publish('catalog_exchange', 'products.truncated', 'truncate products');
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Product;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -8,10 +8,7 @@ Route::get('/test', function () {
     return response()->json(['message' => 'Catalog test route is working']);
 })->name('test');
 
-Route::get('/products', function () {
-    $products = Product::all();
-    return response()->json($products);
-})->name('products');
+Route::get('/products', [ProductController::class, 'index'])->name('products');
 
 Route::get('/storage', function () {
     $files = Storage::disk('public')->files('images');

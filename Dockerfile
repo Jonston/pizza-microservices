@@ -1,10 +1,10 @@
 FROM php:8.4-fpm
 
-# Получаем UID/GID из аргументов сборки
+# Get UID/GID from build arguments
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 
-# Установка зависимостей
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && mkdir -p /var/log/supervisor \
     && rm -rf /var/lib/apt/lists/*
 
-# Установка PHP расширений (добавлено sockets)
+# Install PHP extensions (added sockets)
 RUN docker-php-ext-install \
     pgsql \
     pdo_pgsql \
@@ -29,30 +29,37 @@ RUN docker-php-ext-install \
     gd \
     sockets
 
-# Установка Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Синхронизация UID/GID с хостом
+# Sync UID/GID with host
 RUN groupmod -o -g ${GROUP_ID} www-data \
     && usermod -o -u ${USER_ID} -g www-data www-data
 
-# Установка рабочей директории
+# Set working directory
 WORKDIR /var/www/html
 
-# Изменение прав на директории логов
+# Change permissions for log directories
 RUN chown -R www-data:www-data /var/log/supervisor
 
-# Создание директорий для логов приложения
+# Create directories for application logs
 RUN mkdir -p /var/log/app && chown -R www-data:www-data /var/log/app
 
-# PHP-FPM слушает на порту 9000
+# Copy entrypoint script
+COPY docker/services/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# PHP-FPM listens on port 9000
 EXPOSE 9000
 
-# Для notification сервиса также экспонируем порт 8080 для Reverb
+# For notification service also expose port 8080 for Reverb
 EXPOSE 8080
 
-# Supervisor запускается от root, но процессы от www-data
+# Supervisor runs as root, but processes as www-data
 USER root
 
-# Команда по умолчанию - supervisor
+# Set entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Default command - supervisor
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]

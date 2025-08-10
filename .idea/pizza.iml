@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/catalog/tests/Unit" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/notification/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/notification/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/order" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/order/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/order/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/catalog/vendor/jonston/amqp-laravel" />
