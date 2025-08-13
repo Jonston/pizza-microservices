@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use Exception;
 use Jonston\AmqpLaravel\AMQPService;
 
 class ProductService
@@ -12,6 +13,9 @@ class ProductService
         $this->amqpService = $amqpService;
     }
 
+    /**
+     * @throws Exception
+     */
     public function create(array $data): Product
     {
         $product = Product::create($data);
@@ -23,16 +27,19 @@ class ProductService
             'image' => $product->image,
         ]);
 
-        $this->amqpService->publish('catalog_exchange', 'products.created', $data);
+        $this->amqpService->publish('catalog_exchange', 'product.created', $data);
 
         return $product;
     }
 
+    /**
+     * @throws Exception
+     */
     public function truncate(): void
     {
         Product::truncate();
 
-        $this->amqpService->publish('catalog_exchange', 'products.truncated', 'truncate products');
+        $this->amqpService->publish('catalog_exchange', 'product.truncated', 'truncate products');
     }
 }
 

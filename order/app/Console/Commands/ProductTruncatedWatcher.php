@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Jonston\AmqpLaravel\AMQPService;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class ProductsTruncateWatcher extends Command
+class ProductTruncatedWatcher extends Command
 {
     protected AMQPService $amqpService;
 
@@ -27,7 +27,7 @@ class ProductsTruncateWatcher extends Command
      *
      * @var string
      */
-    protected $signature = 'watch:products-truncated';
+    protected $signature = 'watch:product.truncated';
 
     /**
      * The console command description.
@@ -47,10 +47,10 @@ class ProductsTruncateWatcher extends Command
         };
 
         $this->amqpService->consume(
-            queue: 'products.truncated',
+            queue: 'catalog.product.truncated',
             callback: $callback,
             exchange: 'catalog_exchange',
-            routingKey: 'products.truncated'
+            routingKey: 'product.truncated'
         );
     }
 }

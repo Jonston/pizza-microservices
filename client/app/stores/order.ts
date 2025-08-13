@@ -18,39 +18,49 @@ export const useOrderStore = defineStore('order', () => {
         return orders.value.find(order => order.id === orderId);
     };
 
-    const createOrder = async (data) => {
-        const {data: order, error} = await $fetch('/orders', {
+    const createOrder = async (items) => {
+        const requestData = {
+            items: items.map(item => ({
+                product_id: item.id,
+                quantity: item.quantity
+            })),
+        }
+
+        const {data, error} = await $fetch('/orders', {
             method: 'POST',
-            baseURL: useRuntimeConfig().public.ordersServiceBaseUrl,
-            body: data
+            baseURL: baseUrl,
+            body: requestData
         });
 
-        if (error.value) {
+        if (error) {
             throw new Error(`Failed to create order: ${error.value.message}`);
         }
 
-        return order.value as Order;
+        console.log('Order created:', data);
+
+        orders.value.push(data as Order);
+
+        return data as Order;
     }
 
     const fetchOrders = async () => {
-        const {data, error} = await useFetch('/orders', {
+        const {data, error} = await $fetch('/orders', {
             baseURL: baseUrl,
         });
 
-        if (data.value) {
-            orders.value = data.value as Order[];
+        if (data) {
+            orders.value = data as Order[];
         }
+
+        return data;
     }
 
     function updateOrderStatus(orderId: number, status: OrderStatus) {
         const order = orders.value.find(o => o.id === orderId);
+
         if (order) {
             order.status = status;
         }
-    }
-
-    function removeOrder(orderId: number) {
-        orders.value = orders.value.filter(order => order.id !== orderId);
     }
 
     return {
@@ -58,7 +68,8 @@ export const useOrderStore = defineStore('order', () => {
         orderCount,
         getOrderById,
         createOrder,
-        fetchOrders
+        fetchOrders,
+        updateOrderStatus,
     };
 });
 

@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Log;
 use Jonston\AmqpLaravel\AMQPService;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class ProductsWatcher extends Command
+class ProductCreatedWatcher extends Command
 {
     protected ProductService $productService;
 
     protected AMQPService $amqpService;
 
-    protected $signature = 'watch:catalog';
+    protected $signature = 'watch:product.created';
 
     protected $description = 'Consume messages from the products queue';
 
@@ -27,6 +27,9 @@ class ProductsWatcher extends Command
         $this->amqpService = $amqpService;
     }
 
+    /**
+     * @throws \Exception
+     */
     public function handle(): void
     {
         $callback = function (AMQPMessage $message) {
@@ -34,10 +37,10 @@ class ProductsWatcher extends Command
         };
 
         $this->amqpService->consume(
-            queue: 'products.created',
+            queue: 'catalog.product.created',
             callback: $callback,
             exchange: 'catalog_exchange',
-            routingKey: 'products.created'
+            routingKey: 'product.created'
         );
     }
 

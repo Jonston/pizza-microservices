@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOrderRequest;
+use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Services\OrderService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Mockery\Exception;
 
 class OrderController extends Controller
 {
@@ -20,21 +20,19 @@ class OrderController extends Controller
 
     public function index(Request $request): JsonResponse
     {
-        $orders = Order::all();
+        $orders = Order::query()->with('items.product')->get();
 
-        return response()->json([
-            'message' => 'Orders retrieved successfully',
-            'data' => $orders
-        ]);
+        return OrderResource::collection($orders)->response()
+            ->setStatusCode(200);
     }
 
     public function store(CreateOrderRequest $request): JsonResponse
     {
         $order = $this->orderService->create($request->validated());
 
-        return response()->json([
-            'message' => 'Order created successfully',
-            'order' => $order
-        ], 201);
+        $order->load('items.product');
+
+        return OrderResource::make($order)->response()
+            ->setStatusCode(201);
     }
 }

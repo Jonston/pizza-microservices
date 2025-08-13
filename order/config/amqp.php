@@ -26,8 +26,8 @@ return [
     |
     */
     'exchanges' => [
-        'orders_exchange' => [
-            'type' => 'fanout',
+        'order_exchange' => [
+            'type' => 'direct',
             'durable' => true,
             'auto_delete' => false,
         ],
@@ -48,47 +48,35 @@ return [
     |
     */
     'queues' => [
-        'orders.created' => [
+        'order.order.created' => [
             'durable' => true,
             'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.created',
         ],
-        'orders.processed' => [
+        'order.order.processed' => [
             'durable' => true,
             'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.processed',
         ],
-        'orders.delivered' => [
+        'order.order.delivered' => [
             'durable' => true,
             'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.delivered',
         ],
-        'orders.completed' => [
-            'durable' => true,
-            'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
-        ],
-        'orders.canceled' => [
-            'durable' => true,
-            'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
-        ],
-        'products.created' => [
+        'catalog.product.created' => [
             'durable' => true,
             'auto_delete' => false,
             'exchange' => 'catalog_exchange',
-            'routing_key' => 'products.created',
+            'routing_key' => 'product.created',
         ],
-        'products.truncated' => [
+        'catalog.product.truncated' => [
             'durable' => true,
             'auto_delete' => false,
             'exchange' => 'catalog_exchange',
-            'routing_key' => 'products.truncated',
+            'routing_key' => 'product.truncated',
         ],
     ],
 

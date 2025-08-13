@@ -5,6 +5,7 @@ definePageMeta({
 });
 
 const cartStore = useCartStore();
+const orderStore = useOrderStore();
 
 const addToCart = (product) => {
   cartStore.addItem({
@@ -13,6 +14,11 @@ const addToCart = (product) => {
     price: product.price,
     quantity: 1,
   });
+};
+
+const checkout = () => {
+  orderStore.createOrder(cartStore.items);
+  cartStore.clearCart();
 };
 </script>
 
@@ -27,10 +33,10 @@ const addToCart = (product) => {
 
     <div class="flex flex-col md:flex-row gap-6 mt-8">
       <div class="w-full md:w-1/2">
-        <Orders />
+        <OrderList />
       </div>
       <div class="w-full md:w-1/2">
-        <Cart />
+        <Cart @checkout="checkout"/>
       </div>
     </div>
   </div>

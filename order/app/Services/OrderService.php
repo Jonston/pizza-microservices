@@ -4,7 +4,9 @@ namespace App\Services;
 use App\Enums\OrderEventEnum;
 use App\Enums\OrderStatusEnum;
 use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Jonston\AmqpLaravel\AMQPService;
 
 class OrderService
@@ -16,6 +18,11 @@ class OrderService
         $this->amqpService = $amqpService;
     }
 
+    public function truncate(): void
+    {
+        DB::table('orders')->truncate();
+    }
+
     public function create(array $data): Order
     {
         return DB::transaction(function () use ($data) {
@@ -25,25 +32,32 @@ class OrderService
             ]);
 
             foreach ($data['items'] as $items) {
-                $order->products()->attach(
-                    $items['product_id'],
-                    [
-                        'quantity' => $items['quantity']
-                    ]
-                );
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'product_id' => $items['product_id'],
+                    'quantity' => $items['quantity']
+                ]);
             }
 
             $message = json_encode([
-                'event' => OrderEventEnum::ORDER_CREATED,
+                'event' => OrderEventEnum::ORDER_CREATED->value,
                 'order' => [
                     'id' => $order->id,
                     'status' => $order->status,
                 ]
             ]);
 
-            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
+            Log::channel('amqp')->debug('Before publish', [
+                'message' => $message,
+            ]);
 
-            $order->load('products');
+            $this->amqpService->publish(
+                exchange: 'order_exchange',
+                routingKey: 'order.created',
+                message: $message
+            );
+
+            $order->load('items');
 
             return $order;
         });
@@ -52,7 +66,7 @@ class OrderService
     public function process(string $id): Order
     {
         return DB::transaction(function () use ($id) {
-            sleep(3);
+            sleep(mt_rand(10, 60));
 
             /* @var Order $order */
             $order = Order::findOrFail($id);
@@ -60,16 +74,20 @@ class OrderService
             $order->save();
 
             $message = json_encode([
-                'event' => OrderEventEnum::ORDER_PROCESSED,
+                'event' => OrderEventEnum::ORDER_PROCESSED->value,
                 'order' => [
                     'id' => $order->id,
                     'status' => $order->status,
                 ]
             ]);
 
-            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
+            $this->amqpService->publish(
+                exchange: 'order_exchange',
+                routingKey: 'order.processed',
+                message: $message
+            );
 
-            $order->load('products');
+            $order->load('items');
 
             return $order;
         });
@@ -78,24 +96,28 @@ class OrderService
     public function delivery(string $id): Order
     {
         return DB::transaction(function () use ($id) {
-            sleep(3);
+            sleep(mt_rand(10, 60));
 
             /* @var Order $order */
             $order = Order::findOrFail($id);
-            $order->status = OrderStatusEnum::COMPLETED;
+            $order->status = OrderStatusEnum::DELIVERING;
             $order->save();
 
             $message = json_encode([
-                'event' => OrderEventEnum::ORDER_DELIVERED,
+                'event' => OrderEventEnum::ORDER_DELIVERED->value,
                 'order' => [
                     'id' => $order->id,
                     'status' => $order->status,
                 ]
             ]);
 
-            $this->amqpService->publish('orders_fanout', '', $message, 'fanout');
+            $this->amqpService->publish(
+                exchange: 'order_exchange',
+                routingKey: 'order.delivered',
+                message: $message
+            );
 
-            $order->load('products');
+            $order->load('items');
 
             return $order;
         });
@@ -104,6 +126,7 @@ class OrderService
     public function complete(string $id): Order
     {
         return DB::transaction(function () use ($id) {
+            sleep(mt_rand(10, 60));
 
             /* @var Order $order */
             $order = Order::findOrFail($id);
@@ -111,16 +134,20 @@ class OrderService
             $order->save();
 
             $data = json_encode([
-                'event' => OrderEventEnum::ORDER_COMPLETED,
+                'event' => OrderEventEnum::ORDER_COMPLETED->value,
                 'order' => [
                     'id' => $order->id,
                     'status' => $order->status,
                 ]
             ]);
 
-            $this->amqpService->publish('orders_fanout', '', $data, 'fanout');
+            $this->amqpService->publish(
+                exchange: 'order_exchange',
+                routingKey: 'order.completed',
+                message: $data
+            );
 
-            $order->load('products');
+            $order->load('items');
 
             return $order;
         });

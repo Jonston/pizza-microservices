@@ -22,22 +22,22 @@ class ProductSeeder extends Seeder
 
         $this->productService->create([
             'id' => (string) Str::uuid(),
-            'name' => 'Product 1',
-            'price' => rand(100, 200),
+            'name' => 'Four Cheese Pizza',
+            'price' => mt_rand(200, 350),
             'image' => Storage::disk('public')->url($files[0]),
         ]);
 
         $this->productService->create([
             'id' => (string) Str::uuid(),
-            'name' => 'Product 2',
-            'price' => rand(100, 200),
+            'name' => 'Mushroom & Ham Pizza',
+            'price' => mt_rand(200, 350),
             'image' => Storage::disk('public')->url($files[1]),
         ]);
 
         $this->productService->create([
             'id' => (string) Str::uuid(),
-            'name' => 'Product 3',
-            'price' => rand(100, 200),
+            'name' => 'Tuscana Pizza',
+            'price' => mt_rand(200, 350),
             'image' => Storage::disk('public')->url($files[2]),
         ]);
     }

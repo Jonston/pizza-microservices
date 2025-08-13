@@ -1,8 +1,10 @@
 <script setup lang="ts">
 const cartStore = useCartStore();
 
+const emit = defineEmits(['checkout']);
+
 function checkout() {
-  console.log('Proceeding to checkout with items:', cartStore.items);
+  emit('checkout');
 }
 </script>
 

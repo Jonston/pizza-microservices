@@ -14,7 +14,7 @@ export const useCartStore = defineStore('cart', () => {
     const items = ref<CartItem[]>([]);
 
     const maxQuantity = 10;
-    const minQuantity = 3;
+    const minQuantity = 1;
 
     const totalPrice = computed(() => {
         return items.value.reduce((total, item) => total + (item.price * item.quantity), 0);

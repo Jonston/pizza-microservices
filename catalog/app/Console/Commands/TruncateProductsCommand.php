@@ -21,7 +21,7 @@ class TruncateProductsCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'products:truncate';
+    protected $signature = 'product:truncate';
 
     /**
      * The console command description.

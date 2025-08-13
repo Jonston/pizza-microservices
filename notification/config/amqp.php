@@ -27,8 +27,8 @@ return [
     |
     */
     'exchanges' => [
-        'orders_exchange' => [
-            'type' => 'fanout',
+        'order_exchange' => [
+            'type' => 'direct',
             'durable' => true,
             'auto_delete' => false,
         ],
@@ -44,12 +44,42 @@ return [
     |
     */
     'queues' => [
-        'notifications' => [
+        'notification.order.created' => [
             'durable' => true,
             'auto_delete' => false,
-            'exchange' => 'orders_exchange',
-            'routing_key' => '',
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.created',
         ],
+        'notification.order.processed' => [
+            'durable' => true,
+            'auto_delete' => false,
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.processed',
+        ],
+        'notification.order.delivered' => [
+            'durable' => true,
+            'auto_delete' => false,
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.delivered',
+        ],
+        'notification.order.completed' => [
+            'durable' => true,
+            'auto_delete' => false,
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.completed',
+        ],
+        'notification.order.cancelled' => [
+            'durable' => true,
+            'auto_delete' => false,
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.cancelled',
+        ],
+        'notification.order.failed' => [
+            'durable' => true,
+            'auto_delete' => false,
+            'exchange' => 'order_exchange',
+            'routing_key' => 'order.failed',
+        ]
     ],
 
 ];
